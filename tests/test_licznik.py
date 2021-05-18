@@ -94,11 +94,11 @@ async def test_reset(DUT):
     DUT.reset <= RESET
     await RisingEdge(DUT.clk)
 
-    CountTo = 9
+    CountTo = 8
     outputLed = None
     counterHistory = list()
     # 1. Count to 8
-    for num in range(0, CountTo):
+    for num in range(0, CountTo+1):
         await RisingEdge(DUT.clk)
         counterHistory.append(int(DUT.led.value))
         outputLed = int(DUT.led.value)
